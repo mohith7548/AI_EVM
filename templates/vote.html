@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <title>VOTING</title>
+    <style type="text/css">
+        table,
+        h3 {
+            text-align: center;
+        }
+        
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+        }
+        
+        td,
+        th {
+            margin-top: auto;
+            margin-bottom: auto;
+            text-align: left;
+            padding: 10px;
+        }
+        
+        .candidate:hover {
+            border: 1px solid blue;
+        }
+        
+        .candidate-select {
+            border: 1px solid blue;
+        }
+        /* input[type="radio"] {
+            display: none;
+        } */
+        
+        body {
+            background-color: #F5F5DC;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <table class="center">
+            <th></th>
+            <th>Name</th>
+            <th>Icon</th>
+            {% for party in pts %}
+            <tr class="candidate">
+                <td><input type="radio" name="voted_to" id="{{ party.name }}" value="{{ party.name }}"></td>
+                <td><label for="{{ party.name }}">{{ party.full_name }}</label></td>
+                <td><label for="{{ party.name }}"><img src="{% static 'img/' %}{{party.name|lower}}.png" height="50" width="70"></label></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <input id="btn" type="submit" value="VOTE">
+
+    </form>
+</body>
+
+</html>

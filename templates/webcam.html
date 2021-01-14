@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <title>Webcam Stream</title>
+    <style type="text/css">
+        .video-wrap {
+            padding: 24px 12px;
+            margin: 2px;
+            width: 720px;
+            height: 520px;
+        }
+        
+        #video {
+            width: 720px;
+            height: 520px;
+            background-color: #666;
+        }
+        
+        body {
+            padding-left: 50px;
+            text-align: center;
+            background-color: #F5F5DC;
+        }
+        
+        #btn {
+            float: right;
+            margin: 24px 0;
+            width: 20%;
+            font-size: 26px;
+            background-color: green;
+            border: 1px solid;
+            color: #fff
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-wrap">
+        {% if stream %}
+        <img id="video" src="{% url stream %}">
+        <form method="post">
+            {% csrf_token %}
+            <input id="btn" type="submit" value="Next">
+        </form>
+        {% else %}
+
+        <h3>Voting phase</h3>
+        {% include 'vote.html' %} {% endif %}
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Process Flow</title>
+    <style type="text/css">
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #00008B;
+            margin-left: 50%;
+        }
+        
+        .btn {
+            margin: 20px;
+            text-align: center;
+            text-decoration: none;
+            pointer-events: none;
+            font-size: 16px;
+            background-color: #D3D3D3;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            border-radius: 6px;
+            width: 100%;
+        }
+        
+        body {
+            background-color: #F5F5DC;
+        }
+        
+        .led-green {
+            background-color: #ABFF00;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        {% if not request.session.phase_1 %}
+        <button class="btn">Person Detection</button> {% else %}
+        <button class="btn led-green" style="background-color:green !important">Person Detection</button> {% endif %}
+
+        <div class="arrow-down"></div>
+
+        {% if not request.session.phase_2 %}
+        <button class="btn">Mask Detection</button> {% else %}
+        <button class="btn led-green" style="background-color:green !important">Mask Detection</button> {% endif %}
+
+        <div class="arrow-down"></div>
+
+        {% if not request.session.phase_3 %}
+        <button class="btn">Face Recognition</button> {% else %}
+        <button class="btn led-green" style="background-color:green !important">Face Recognition</button> {% endif %}
+
+        <div class="arrow-down"></div>
+
+        {% if not request.session.phase_4 %}
+        <button class="btn">Ready to Vote</button> {% else %}
+        <button class="btn led-green" style="background-color:green !important">Ready to Vote</button> {% endif %}
+
+    </div>
+</body>
+
+</html>
