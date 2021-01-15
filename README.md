@@ -7,7 +7,7 @@
 
 ## Demo
 
-Click to watch full demo <br>
+Click to watch full demo (by Satyendra Yadav) <br>
 
 [![Intro](Demo.gif)](https://drive.google.com/file/d/1QwlWrVxVcpSU3ffnwAzOTcl1Q1ggCN-T/view?usp=sharing)
 
