@@ -9,7 +9,7 @@ import glob
 faces_encodings = []
 faces_names = []
 cur_direc = os.getcwd()
-path = os.path.join(cur_direc, 'C:\\Users\\ankit.chouhan\\Desktop\\AI-GFT\\Final2\\FaceRecognition\\faces\\')
+path = os.path.join(cur_direc, os.path.join(os.getcwd(), 'faces'))
 
 list_of_files = [f for f in glob.glob(path+'*.jpg')]
 
